@@ -1,0 +1,30 @@
+.pti-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pti-gap-field);
+}
+
+.pti-field label {
+    font-size: var(--pti-font-size-label);
+    font-weight: var(--pti-font-weight-semibold);
+    color: var(--pti-label-color);
+    letter-spacing: var(--pti-letter-spacing-label);
+}
+
+.pti-field small {
+    font-size: var(--pti-font-size-small);
+    color: var(--pti-description-color);
+    margin-top: var(--pti-margin-description);
+}
+
+.pti-required {
+    color: var(--pti-error-color);
+    font-weight: var(--pti-font-weight-semibold);
+}
+
+.pti-error {
+    font-size: var(--pti-font-size-small);
+    color: var(--pti-error-color);
+    font-weight: 500;
+    margin-top: var(--pti-margin-error);
+}

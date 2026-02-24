@@ -1,0 +1,79 @@
+.pti-field .pti-textarea {
+    width: 100%;
+    padding: var(--pti-padding-input);
+    font-size: var(--pti-font-size-base);
+    font-family: var(--pti-font-family);
+    background: var(--pti-input-bg);
+    color: var(--pti-input-text);
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-base);
+    box-sizing: border-box;
+    transition: var(--pti-transition-base);
+    resize: vertical;
+}
+
+.pti-field .pti-textarea:focus {
+    outline: none;
+    border-color: var(--pti-input-focus);
+    box-shadow: var(--pti-shadow-focus);
+}
+
+.pti-field .pti-textarea.pti-input-error {
+    border-color: var(--pti-error-color) !important;
+}
+
+.pti-field .pti-textarea.pti-input-error:focus {
+    box-shadow: var(--pti-shadow-error) !important;
+}
+
+.pti-password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.pti-password-wrapper .pti-password {
+    width: 100%;
+    padding: var(--pti-padding-input-number);
+    font-size: var(--pti-font-size-base);
+    font-family: var(--pti-font-family);
+    background: var(--pti-input-bg);
+    color: var(--pti-input-text);
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-base);
+    box-sizing: border-box;
+    transition: var(--pti-transition-base);
+}
+
+.pti-password-wrapper .pti-password:focus {
+    outline: none;
+    border-color: var(--pti-input-focus);
+    box-shadow: var(--pti-shadow-focus);
+    transform: var(--pti-transform-input-focus);
+}
+
+.pti-password-toggle {
+    position: absolute;
+    right: var(--pti-number-controls-offset);
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--pti-number-controls-width);
+    height: calc(100% - 4px);
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    border-left: var(--pti-border-width-thin) solid var(--pti-input-border);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--pti-input-focus);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: var(--pti-radius-small);
+    border-bottom-right-radius: var(--pti-radius-small);
+    transition: var(--pti-transition-fast);
+}
+
+.pti-password-toggle:hover {
+    background: var(--pti-number-btn-hover-bg);
+}

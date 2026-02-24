@@ -1,0 +1,44 @@
+.pti-select {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    min-height: var(--pti-input-height);
+    padding: var(--pti-padding-input);
+    font-size: var(--pti-font-size-base);
+    font-family: var(--pti-font-family);
+    background: var(--pti-input-bg);
+    color: var(--pti-input-text);
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-base);
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: var(--pti-transition-base);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.75rem;
+}
+
+.pti-select:focus {
+    outline: none;
+    border-color: var(--pti-input-focus);
+    box-shadow: var(--pti-shadow-focus);
+    transform: var(--pti-transform-input-focus);
+}
+
+.pti-select.pti-input-error {
+    border-color: var(--pti-error-color) !important;
+}
+
+.pti-select.pti-input-error:focus {
+    box-shadow: var(--pti-shadow-error) !important;
+}
+
+.pti-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pti-select option[disabled] {
+    color: var(--pti-description-color);
+}

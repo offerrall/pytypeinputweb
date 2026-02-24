@@ -1,0 +1,6 @@
+pti-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pti-gap-form);
+    font-family: var(--pti-font-family);
+}

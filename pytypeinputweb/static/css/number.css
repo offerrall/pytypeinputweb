@@ -1,0 +1,66 @@
+.pti-number-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.pti-number-wrapper input[type="text"] {
+    padding: var(--pti-padding-input-number);
+}
+
+.pti-number-controls {
+    position: absolute;
+    right: var(--pti-number-controls-offset);
+    top: var(--pti-number-controls-offset);
+    bottom: var(--pti-number-controls-offset);
+    display: flex;
+    flex-direction: column;
+    width: var(--pti-number-controls-width);
+    border-left: var(--pti-border-width-thin) solid var(--pti-input-border);
+    background: var(--pti-input-bg);
+    border-top-right-radius: var(--pti-radius-small);
+    border-bottom-right-radius: var(--pti-radius-small);
+    overflow: hidden;
+    transition: var(--pti-transition-base);
+}
+
+.pti-number-btn {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: var(--pti-number-btn-font-size);
+    color: var(--pti-label-color);
+    transition: var(--pti-transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--pti-font-weight-semibold);
+}
+
+.pti-number-btn:first-child {
+    border-bottom: var(--pti-border-width) solid var(--pti-input-border);
+}
+
+.pti-number-btn:hover {
+    background: var(--pti-number-btn-hover-bg);
+}
+
+.pti-number-btn:active {
+    background: var(--pti-input-focus);
+    color: white;
+}
+
+.pti-number-wrapper input:focus + .pti-number-controls {
+    border-left-color: var(--pti-input-focus);
+    transform: var(--pti-transform-input-focus);
+}
+
+.pti-number-wrapper input.pti-input-error:focus + .pti-number-controls {
+    border-left-color: var(--pti-error-color);
+}
+
+.pti-input-error + .pti-number-controls {
+    border-left-color: var(--pti-error-color);
+}

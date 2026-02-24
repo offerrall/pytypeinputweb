@@ -1,0 +1,35 @@
+.pti-field input[type="text"],
+.pti-field input[type="time"],
+.pti-field input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    max-width: 100%;
+    min-height: var(--pti-input-height);
+    padding: var(--pti-padding-input);
+    font-size: var(--pti-font-size-base);
+    font-family: var(--pti-font-family);
+    background: var(--pti-input-bg);
+    color: var(--pti-input-text);
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-base);
+    box-sizing: border-box;
+    transition: var(--pti-transition-base);
+}
+
+.pti-field input[type="text"]:focus,
+.pti-field input[type="time"]:focus,
+.pti-field input[type="date"]:focus {
+    outline: none;
+    border-color: var(--pti-input-focus);
+    box-shadow: var(--pti-shadow-focus);
+    transform: var(--pti-transform-input-focus);
+}
+
+.pti-input-error {
+    border-color: var(--pti-error-color) !important;
+}
+
+.pti-input-error:focus {
+    box-shadow: var(--pti-shadow-error) !important;
+}

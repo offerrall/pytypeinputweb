@@ -1,0 +1,61 @@
+.pti-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: var(--pti-spacing-field, 1rem);
+    align-items: stretch;
+}
+
+.pti-submit,
+.pti-reset {
+    padding: var(--pti-padding-submit);
+    font-size: var(--pti-font-size-base);
+    font-weight: var(--pti-font-weight-semibold);
+    font-family: var(--pti-font-family);
+    border-radius: var(--pti-radius-base);
+    cursor: pointer;
+    transition: var(--pti-transition-base);
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.pti-submit {
+    color: white;
+    background: var(--pti-submit-bg);
+    border: 2px solid var(--pti-submit-bg);
+    box-shadow: var(--pti-shadow-submit);
+}
+
+.pti-submit:hover:not(:disabled) {
+    background: var(--pti-submit-hover);
+    border-color: var(--pti-submit-hover);
+    transform: var(--pti-transform-submit-hover);
+    box-shadow: var(--pti-shadow-submit-hover);
+}
+
+.pti-submit:active:not(:disabled) {
+    transform: var(--pti-transform-submit-active);
+    box-shadow: var(--pti-shadow-submit-active);
+}
+
+.pti-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pti-reset {
+    color: var(--pti-submit-bg);
+    background: transparent;
+    border: 2px solid var(--pti-submit-bg);
+}
+
+.pti-reset:hover {
+    background: var(--pti-submit-bg);
+    color: white;
+    transform: var(--pti-transform-submit-hover);
+    box-shadow: var(--pti-shadow-submit-hover);
+}
+
+.pti-reset:active {
+    transform: var(--pti-transform-submit-active);
+    box-shadow: var(--pti-shadow-submit-active);
+}

@@ -1,0 +1,143 @@
+:root {
+    /* Typography */
+    --pti-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --pti-font-size-base: 1rem;
+    --pti-font-size-small: 0.875rem;
+    --pti-font-size-label: 0.9375rem;
+    --pti-font-weight-normal: 400;
+    --pti-font-weight-semibold: 600;
+    --pti-letter-spacing-label: -0.01em;
+    
+    /* Spacing */
+    --pti-gap-form: 1rem;
+    --pti-gap-field: 0.5rem;
+    --pti-gap-slider: 1rem;
+    --pti-padding-input: 0.75rem 1rem;
+    --pti-padding-input-number: 0.75rem 3rem 0.75rem 1rem;
+    --pti-padding-submit: 0.75rem 1.5rem;
+    --pti-padding-slider-value: 0.375rem 0.75rem;
+    --pti-margin-description: -0.25rem;
+    --pti-margin-error: 0.375rem;
+    
+    /* Border Radius */
+    --pti-radius-base: 10px;
+    --pti-radius-small: 8px;
+    
+    /* Border Width */
+    --pti-border-width: 2px;
+    --pti-border-width-thin: 1px;
+    
+    /* Sizes */
+    --pti-input-height: 3.125rem;
+    --pti-slider-height: 8px;
+    --pti-slider-thumb-size: 22px;
+    --pti-slider-wrapper-min-height: 2.25rem;
+    --pti-slider-value-min-width: 3.5rem;
+    --pti-number-controls-width: 2.25rem;
+    --pti-number-controls-offset: 2px;
+    --pti-number-btn-font-size: 0.75rem;
+    
+    /* Shadows */
+    --pti-shadow-focus: 0 0 0 4px var(--pti-focus-shadow);
+    --pti-shadow-error: 0 0 0 4px var(--pti-error-shadow);
+    --pti-shadow-submit: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --pti-shadow-submit-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --pti-shadow-submit-active: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --pti-shadow-slider-thumb: 0 2px 6px rgba(0, 0, 0, 0.2);
+    --pti-shadow-slider-thumb-hover: 0 3px 8px rgba(0, 0, 0, 0.25);
+    
+    /* Transforms */
+    --pti-transform-input-focus: translateY(-1px);
+    --pti-transform-submit-hover: translateY(-2px);
+    --pti-transform-submit-active: translateY(0);
+    --pti-transform-slider-thumb-hover: scale(1.15);
+    --pti-transform-slider-thumb-active: scale(1.25);
+    
+    /* Transitions */
+    --pti-transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --pti-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* ===== Colors - Light Mode (definitions) ===== */
+    --pti-label-color-light: #1a1a1a;
+    --pti-label-color-dark: #f0f0f0;
+    --pti-input-bg-light: #fff;
+    --pti-input-bg-dark: #1e1e1e;
+    --pti-input-text-light: #1a1a1a;
+    --pti-input-text-dark: #f0f0f0;
+    --pti-input-border-light: #d1d5db;
+    --pti-input-border-dark: #374151;
+    --pti-input-focus-light: #3b82f6;
+    --pti-input-focus-dark: #60a5fa;
+    --pti-description-color-light: #6b7280;
+    --pti-description-color-dark: #9ca3af;
+    --pti-error-color: #ef4444;
+    --pti-submit-bg-light: #3b82f6;
+    --pti-submit-bg-dark: #60a5fa;
+    --pti-submit-hover-light: #2563eb;
+    --pti-submit-hover-dark: #3b82f6;
+    --pti-number-btn-hover-bg-light: #f3f4f6;
+    --pti-number-btn-hover-bg-dark: #374151;
+
+    /* ===== Active Color Variables (default: light) ===== */
+    --pti-label-color: var(--pti-label-color-light);
+    --pti-input-bg: var(--pti-input-bg-light);
+    --pti-input-text: var(--pti-input-text-light);
+    --pti-input-border: var(--pti-input-border-light);
+    --pti-input-focus: var(--pti-input-focus-light);
+    --pti-description-color: var(--pti-description-color-light);
+    --pti-submit-bg: var(--pti-submit-bg-light);
+    --pti-submit-hover: var(--pti-submit-hover-light);
+    --pti-number-btn-hover-bg: var(--pti-number-btn-hover-bg-light);
+    --pti-focus-shadow: rgba(59, 130, 246, 0.15);
+    --pti-error-shadow: rgba(239, 68, 68, 0.15);
+
+    /* List */
+    --pti-remove-btn-bg: #ef4444;
+    --pti-remove-btn-hover: #dc2626;
+}
+
+/* ===== Auto: OS preference ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --pti-label-color: var(--pti-label-color-dark);
+        --pti-input-bg: var(--pti-input-bg-dark);
+        --pti-input-text: var(--pti-input-text-dark);
+        --pti-input-border: var(--pti-input-border-dark);
+        --pti-input-focus: var(--pti-input-focus-dark);
+        --pti-description-color: var(--pti-description-color-dark);
+        --pti-submit-bg: var(--pti-submit-bg-dark);
+        --pti-submit-hover: var(--pti-submit-hover-dark);
+        --pti-number-btn-hover-bg: var(--pti-number-btn-hover-bg-dark);
+    }
+}
+
+/* ===== Manual: data-theme attribute ===== */
+[data-theme="light"],
+.light-mode {
+    --pti-label-color: var(--pti-label-color-light);
+    --pti-input-bg: var(--pti-input-bg-light);
+    --pti-input-text: var(--pti-input-text-light);
+    --pti-input-border: var(--pti-input-border-light);
+    --pti-input-focus: var(--pti-input-focus-light);
+    --pti-description-color: var(--pti-description-color-light);
+    --pti-submit-bg: var(--pti-submit-bg-light);
+    --pti-submit-hover: var(--pti-submit-hover-light);
+    --pti-number-btn-hover-bg: var(--pti-number-btn-hover-bg-light);
+    --pti-focus-shadow: rgba(59, 130, 246, 0.15);
+    --pti-error-shadow: rgba(239, 68, 68, 0.15);
+}
+
+[data-theme="dark"],
+.dark-mode {
+    --pti-label-color: var(--pti-label-color-dark);
+    --pti-input-bg: var(--pti-input-bg-dark);
+    --pti-input-text: var(--pti-input-text-dark);
+    --pti-input-border: var(--pti-input-border-dark);
+    --pti-input-focus: var(--pti-input-focus-dark);
+    --pti-description-color: var(--pti-description-color-dark);
+    --pti-submit-bg: var(--pti-submit-bg-dark);
+    --pti-submit-hover: var(--pti-submit-hover-dark);
+    --pti-number-btn-hover-bg: var(--pti-number-btn-hover-bg-dark);
+    --pti-focus-shadow: rgba(59, 130, 246, 0.25);
+    --pti-error-shadow: rgba(239, 68, 68, 0.25);
+}

@@ -1,0 +1,80 @@
+.pti-slider-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--pti-gap-slider);
+    align-items: center;
+    width: 100%;
+    min-height: var(--pti-slider-wrapper-min-height);
+}
+
+.pti-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: var(--pti-slider-height);
+    border-radius: var(--pti-radius-small);
+    background: var(--pti-input-border);
+    outline: none;
+}
+
+.pti-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--pti-slider-thumb-size);
+    height: var(--pti-slider-thumb-size);
+    border-radius: 50%;
+    background: var(--pti-input-focus);
+    cursor: pointer;
+    transition: var(--pti-transition-base);
+    box-shadow: var(--pti-shadow-slider-thumb);
+}
+
+.pti-slider::-webkit-slider-thumb:hover {
+    background: var(--pti-submit-hover);
+    transform: var(--pti-transform-slider-thumb-hover);
+    box-shadow: var(--pti-shadow-slider-thumb-hover);
+}
+
+.pti-slider::-webkit-slider-thumb:active {
+    transform: var(--pti-transform-slider-thumb-active);
+}
+
+.pti-slider::-moz-range-thumb {
+    width: var(--pti-slider-thumb-size);
+    height: var(--pti-slider-thumb-size);
+    border: none;
+    border-radius: 50%;
+    background: var(--pti-input-focus);
+    cursor: pointer;
+    transition: var(--pti-transition-base);
+    box-shadow: var(--pti-shadow-slider-thumb);
+}
+
+.pti-slider::-moz-range-thumb:hover {
+    background: var(--pti-submit-hover);
+    transform: var(--pti-transform-slider-thumb-hover);
+    box-shadow: var(--pti-shadow-slider-thumb-hover);
+}
+
+.pti-slider::-moz-range-thumb:active {
+    transform: var(--pti-transform-slider-thumb-active);
+}
+
+.pti-slider::-moz-range-track {
+    height: var(--pti-slider-height);
+    border-radius: var(--pti-radius-small);
+    background: var(--pti-input-border);
+}
+
+.pti-slider-value {
+    min-width: var(--pti-slider-value-min-width);
+    padding: var(--pti-padding-slider-value);
+    font-size: var(--pti-font-size-small);
+    font-weight: var(--pti-font-weight-semibold);
+    color: var(--pti-label-color);
+    background: var(--pti-input-bg);
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-small);
+    text-align: center;
+    font-family: var(--pti-font-family);
+}

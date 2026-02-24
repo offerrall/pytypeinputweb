@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytypeinputweb"
+version = "1.0.0"
+description = "Web Components for pytypeinput. Render Python type metadata as dynamic forms."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Beltrán Offerrall"}
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Repository = "https://github.com/offerrall/pytypeinputweb"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pytypeinputweb"]
+artifacts = ["pytypeinputweb/static/**"]

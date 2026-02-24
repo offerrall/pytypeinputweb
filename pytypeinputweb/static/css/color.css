@@ -1,0 +1,51 @@
+.pti-color-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pti-color {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-base);
+    cursor: pointer;
+    background: none;
+    transition: var(--pti-transition-base);
+}
+
+.pti-color::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+
+.pti-color::-webkit-color-swatch {
+    border: none;
+    border-radius: calc(var(--pti-radius-base) - 4px);
+}
+
+.pti-color::-moz-color-swatch {
+    border: none;
+    border-radius: calc(var(--pti-radius-base) - 4px);
+}
+
+.pti-color:focus {
+    outline: none;
+    border-color: var(--pti-input-focus);
+    box-shadow: var(--pti-shadow-focus);
+}
+
+.pti-color-hex {
+    font-size: var(--pti-font-size-small);
+    font-weight: var(--pti-font-weight-semibold);
+    font-family: monospace;
+    color: var(--pti-label-color);
+    background: var(--pti-input-bg);
+    border: var(--pti-border-width) solid var(--pti-input-border);
+    border-radius: var(--pti-radius-small);
+    padding: var(--pti-padding-slider-value);
+    min-width: 5rem;
+    text-align: center;
+}
