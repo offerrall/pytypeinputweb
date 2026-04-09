@@ -93,7 +93,7 @@ function loadForm(container, formId, params) {
 
     const submitBtn = document.createElement("button");
     submitBtn.className = "pti-submit";
-    submitBtn.textContent = "Submit";
+    submitBtn.textContent = fields.length === 0 ? "Reload" : "Submit";
     submitBtn.type = "button";
     submitBtn.disabled = true;
     submitBtn.addEventListener("click", () => {
@@ -101,21 +101,23 @@ function loadForm(container, formId, params) {
         container.dispatchEvent(new CustomEvent("submit", { detail: values }));
     });
 
-    const resetBtn = document.createElement("button");
-    resetBtn.className = "pti-reset";
-    resetBtn.textContent = "Reset";
-    resetBtn.type = "button";
-    resetBtn.addEventListener("click", () => {
-        container.dispatchEvent(new CustomEvent("reset"));
-        const freshParams = JSON.parse(JSON.stringify(params));
-        const newFields = loadForm(container, formId, freshParams);
-        if (container._ptiUpdateFields) {
-            container._ptiUpdateFields(newFields);
-        }
-    });
-
     btnContainer.appendChild(submitBtn);
-    btnContainer.appendChild(resetBtn);
+
+    if (fields.length > 0) {
+        const resetBtn = document.createElement("button");
+        resetBtn.className = "pti-reset";
+        resetBtn.textContent = "Reset";
+        resetBtn.type = "button";
+        resetBtn.addEventListener("click", () => {
+            container.dispatchEvent(new CustomEvent("reset"));
+            const freshParams = JSON.parse(JSON.stringify(params));
+            const newFields = loadForm(container, formId, freshParams);
+            if (container._ptiUpdateFields) {
+                container._ptiUpdateFields(newFields);
+            }
+        });
+        btnContainer.appendChild(resetBtn);
+    }
     container.appendChild(btnContainer);
 
     for (const f of fields) {
@@ -127,8 +129,59 @@ function loadForm(container, formId, params) {
         }
     }
 
-    revalidateForm(fields, submitBtn);
+    if (fields.length === 0) submitBtn.disabled = false;
+    else revalidateForm(fields, submitBtn);
     return fields;
+}
+
+function applyPrefill(f, val) {
+    const type = f.param.param_type;
+
+    if (f.toggle && val != null) {
+        f.toggle.checked = true;
+        f.toggle.dispatchEvent(new Event("change"));
+    }
+
+    if (type === "bool") {
+        const cb = f.wrapper.querySelector('input[type="checkbox"]');
+        if (cb) {
+            cb.checked = val === true || val === "true";
+            cb.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    } else if (f.param.special_widget === "Color") {
+        const el = f.wrapper.querySelector('input[type="color"]');
+        if (el) {
+            el.value = val;
+            el.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+    } else if (f.param.choices) {
+        const sel = f.wrapper.querySelector("select");
+        if (sel) {
+            sel.value = String(val);
+            sel.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+    } else {
+        const el = f.wrapper.querySelector(
+            'input[type="text"], input[type="range"], input[type="date"], input[type="time"], input[type="password"], textarea'
+        );
+        if (el) {
+            el.value = val;
+            el.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+    }
+}
+
+function getPrefillFromUrl(params) {
+    const search = new URLSearchParams(window.location.search);
+    if (!search.size) return {};
+
+    const prefill = {};
+    for (const param of params) {
+        if (search.has(param.name)) {
+            prefill[param.name] = search.get(param.name);
+        }
+    }
+    return prefill;
 }
 
 let formCounter = 0;
@@ -146,12 +199,32 @@ class PtiForm extends HTMLElement {
 
     connectedCallback() {
         const data = this.getAttribute("params");
-        if (data) this.load(JSON.parse(data));
+        if (!data) return;
+
+        const params = JSON.parse(data);
+        const prefill = getPrefillFromUrl(params);
+        this.load(params, prefill);
     }
 
-    load(params) {
+    load(params, prefill = {}) {
         this._params = JSON.parse(JSON.stringify(params));
         this._fields = loadForm(this, this._formId, params);
+
+        if (this._fields.length === 0) {
+            const submitBtn = this.querySelector(".pti-submit");
+            if (submitBtn) setTimeout(() => submitBtn.click(), 0);
+            return;
+        }
+
+        if (Object.keys(prefill).length > 0) {
+            for (const f of this._fields) {
+                if (f.param.name in prefill) {
+                    applyPrefill(f, prefill[f.param.name]);
+                }
+            }
+            const submitBtn = this.querySelector(".pti-submit");
+            if (submitBtn) revalidateForm(this._fields, submitBtn);
+        }
     }
 
     getValues() {
