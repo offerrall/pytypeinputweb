@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pytypeinputweb"
-version = "1.0.0"
+version = "1.0.1"
 description = "Web Components for pytypeinput. Render Python type metadata as dynamic forms."
 readme = "README.md"
 license = {text = "MIT"}
