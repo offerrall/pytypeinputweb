@@ -147,6 +147,21 @@ File widgets support drag & drop, extension filtering based on the pattern const
 
 The reset button (and `reset()` method) restore the form to its initial state, including defaults, toggle states, and list items.
 
+### URL Prefill
+
+When the page is loaded with query parameters matching field names, those values are applied to the form on mount. For optional fields, the presence of the parameter activates the toggle. List fields expect the value to be **JSON-encoded** (e.g. `?tags=%5B%22a%22%2C%22b%22%5D`).
+
+**Convention for absent values:** to represent "no value" (e.g. a Python `None`), **omit the parameter** from the URL. The library does **not** interpret string literals like `"None"` or `"null"` as null — they are passed through as-is, which for an optional field means the toggle gets activated with that literal string.
+
+If you build prefill URLs from Python objects, filter out `None` values first:
+
+```python
+from urllib.parse import urlencode
+
+params = {k: v for k, v in user.dict().items() if v is not None}
+url = f"/edit-user?{urlencode(params)}"
+```
+
 ### Theming
 
 All visual properties are defined as CSS custom properties (`--pti-*`). Use `list_css_variables()` to inspect every available variable and override them to customize the look and feel:
