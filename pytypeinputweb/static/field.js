@@ -135,6 +135,28 @@ function wrapWithList(param, fieldId, renderer) {
         getValue() {
             return items.map(item => item.input.getValue());
         },
+        setValue(values) {
+            if (!Array.isArray(values)) return;
+            while (items.length > Math.max(minItems, values.length) && items.length > minItems) {
+                const last = items.pop();
+                last.row.remove();
+            }
+            while (items.length < values.length) {
+                if (maxItems !== null && items.length >= maxItems) break;
+                addItem(values[items.length]);
+            }
+            for (let i = 0; i < items.length && i < values.length; i++) {
+                const inp = items[i].input;
+                if (typeof inp.setValue === "function") {
+                    inp.setValue(values[i]);
+                } else if ("value" in inp) {
+                    inp.value = values[i];
+                    inp.dispatchEvent(new Event("input", { bubbles: true }));
+                }
+            }
+            updateButtons();
+            wrapper.dispatchEvent(new Event("input", { bubbles: true }));
+        },
         validate() {
             let firstError = null;
             for (const item of items) {

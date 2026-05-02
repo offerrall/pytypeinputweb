@@ -142,6 +142,16 @@ function applyPrefill(f, val) {
         f.toggle.dispatchEvent(new Event("change"));
     }
 
+    if (f.param.list != null) {
+        let arr;
+        try { arr = JSON.parse(val); } catch (e) { return; }
+        if (!Array.isArray(arr)) return;
+        if (typeof f.input.setValue === "function") {
+            f.input.setValue(arr);
+        }
+        return;
+    }
+
     if (type === "bool") {
         const cb = f.wrapper.querySelector('input[type="checkbox"]');
         if (cb) {
