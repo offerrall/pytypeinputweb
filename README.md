@@ -1,4 +1,4 @@
-# PyTypeInputWeb 1.0.2
+# PyTypeInputWeb 1.0.3
 
 [![PyPI version](https://img.shields.io/pypi/v/pytypeinputweb)](https://pypi.org/project/pytypeinputweb/)
 [![Python](https://img.shields.io/pypi/pyversions/pytypeinputweb)](https://pypi.org/project/pytypeinputweb/)
