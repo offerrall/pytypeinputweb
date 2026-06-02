@@ -22,6 +22,12 @@ function renderColor(field, fieldId) {
 
     wrapper.input = {
         getValue() { return input.value; },
+        setValue(v) {
+            if (v == null || v === "") return;
+            input.value = v;
+            hexDisplay.textContent = input.value;
+            input.dispatchEvent(new Event("input", { bubbles: true }));
+        },
         validate() {},
         classList: wrapper.classList,
         addEventListener: (type, fn) => input.addEventListener(type, fn),

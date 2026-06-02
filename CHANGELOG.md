@@ -2,6 +2,39 @@
 
 All notable changes to pytypeinputweb are documented in this file.
 
+## [1.0.3]
+
+### Fixed
+
+- **URL prefill for `list[Color]` fields.** Color items inside a list were
+  not populated from the prefill and always rendered black (`#000000`).
+  `wrapWithList.setValue` (from 1.0.2) writes each value via the item's
+  `setValue` or, failing that, `inp.value = …`. But `renderColor` returns a
+  wrapper whose `wrapper.input` is a **plain object** with neither a
+  `setValue` method nor a `value` property, so every write was a no-op. The
+  first item (created at default before prefill) kept its `#000000` default,
+  and single-color filaments came back entirely black. This contradicts the
+  1.0.2 compatibility note that listed `color` as covered by the fallback —
+  that note was wrong; the color widget never exposed a writable `value`.
+
+### Changed
+
+- **`renderColor` (`static/color.js`) now exposes `setValue(v)` on
+  `wrapper.input`.** It assigns the value to the underlying
+  `input[type="color"]`, updates the hex display span, and dispatches an
+  `input` event so the form revalidates. Empty/null values are ignored,
+  leaving the item at its current value. With this, `list[Color]` prefill
+  populates every item correctly.
+
+### Compatibility notes
+
+- Supersedes the incorrect 1.0.2 note: `color` is now genuinely covered by
+  list prefill, via its own `setValue` rather than the `inp.value` fallback.
+- The `input[type="color"]` element only accepts `#rrggbb` (6-digit) values;
+  values produced by the native picker always satisfy this, so no expansion
+  of 3-digit `#rgb` shorthand is performed.
+- Public API (`getValues`, `validate`, the `pti-form` element) is unchanged.
+
 ## [1.0.2]
 
 ### Fixed
