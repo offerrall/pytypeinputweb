@@ -1,7 +1,6 @@
 # PyTypeInputWeb 1.0.3
 
 [![PyPI version](https://img.shields.io/pypi/v/pytypeinputweb)](https://pypi.org/project/pytypeinputweb/)
-[![Python](https://img.shields.io/pypi/pyversions/pytypeinputweb)](https://pypi.org/project/pytypeinputweb/)
 [![License](https://img.shields.io/pypi/l/pytypeinputweb)](https://pypi.org/project/pytypeinputweb/)
 
 **Auto-generated HTML forms from [PyTypeInput](https://github.com/offerrall/pytypeinput) metadata.**
