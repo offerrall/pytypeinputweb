@@ -1,3 +1,16 @@
+> [!WARNING]
+> **This project is discontinued and no longer maintained.**
+>
+> It has been superseded by
+> [**pytypehintweb**](https://github.com/offerrall/pytypehintweb), a full
+> rewrite of the same idea on top of
+> [`pytypehint`](https://github.com/offerrall/pytypehint): a web plan with its
+> own JSON transport and a rebuilt widget layer. New projects should use
+> `pytypehintweb`; [FuncToWeb](https://github.com/offerrall/functoweb) 2.0
+> already runs on it.
+>
+> This repository stays online only as a reference for existing installations.
+
 # PyTypeInputWeb 1.0.3
 
 [![PyPI version](https://img.shields.io/pypi/v/pytypeinputweb)](https://pypi.org/project/pytypeinputweb/)
